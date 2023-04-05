@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            Name
+        </div>
+        <div class="col-md-9">
+            {{ user.name }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Email
+        </div>
+        <div class="col-md-9">
+            {{ user.email }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Phone Number
+        </div>
+        <div class="col-md-9">
+            {{ user.phoneNumber }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Gender
+        </div>
+        <div class="col-md-9">
+            {{ user.gender }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Hobbies
+        </div>
+        <div class="col-md-9">
+            {% for hobby in user.hobbies %}
+                <span>{{ hobby }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% if(user.profileImage != '') %}
+    <div class="row">
+        <div class="col-md-3">
+            Profile Image
+        </div>
+        <div class="col-md-9">
+
+            <img src="{{ asset('uploads/profile/'~user.profileImage) }}" width="100px"/>
+
+        </div>
+    </div>
+    {% endif %}
+    <a href="{{ path('app_profile_edit', {'id': user.id}) }}">Edit Profile</a>
+</div>
+{% endblock %}
