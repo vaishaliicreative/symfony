@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+    <style>
+        .invalid-feedback{
+            display: block;
+        }
+        .invalid-feedback ul{
+            list-style: none;
+            margin-top: 0;
+            font-size: .875em;
+            color: #dc3545;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+    </style>
+    <div class="example-wrapper">
+        <section>
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-lg-12 col-xl-11">
+                        <div class="card text-black" style="border-radius: 10px;" >
+                            <div class="card-body p-md-5">
+                                <div class="col-md-10 col-lg-9 order-2 order-lg-1">
+                                    {{ form_start(form,{'attr':{'novalidate':'novalidate','class':'mx-1 mx-md-4'}}) }}
+                                    <div class="row mb-3">
+                                        <div class="col-md-3">
+                                            {{ form_label(form.name) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ form_widget(form.name,{'attr':{'class':'form-control'}}) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(form.name) }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+{#                                    <div class="row mb-3">#}
+{#                                        <div class="col-md-3">#}
+{#                                            {{ form_label(form.email) }}#}
+{#                                        </div>#}
+{#                                        <div class="col-md-9">#}
+{#                                            {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}#}
+{#                                            <div class="invalid-feedback">#}
+{#                                                {{ form_errors(form.email) }}#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+                                    <div class="row mb-3">
+                                        <div class="col-md-3">
+                                            {{ form_label(form.phone_number) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ form_widget(form.phone_number,{'attr':{'class':'form-control'}}) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(form.phone_number) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-3">
+                                            {{ form_label(form.gender) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ form_widget(form.gender) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(form.gender) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-3">
+                                            {{ form_label(form.profile_image) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ form_widget(form.profile_image,{'attr':{'class':'form-control'}}) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(form.profile_image) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-3">
+                                            {{ form_label(form.hobbies) }}
+                                        </div>
+                                        <div class="col-md-9">
+                                            {{ form_widget(form.hobbies) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(form.hobbies) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+                                                {{ form_widget(form.save,{'attr':{'class':'btn btn-primary'}}) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+                                                <a class="btn btn-info text-white" href="{{ path('app_profile') }}">Cancle</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+{% endblock %}
